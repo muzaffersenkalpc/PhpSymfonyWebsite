@@ -1,0 +1,61 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title %}Orders index{% endblock %}
+{% block sidebar %} {{ include('home/_userssidebar.html.twig') }}{% endblock %}
+{% block body %}
+
+<div class="col-sm-9">
+    <div class="signup-form"><!--sign up form-->
+
+            <fieldset>
+                {{ include('User/messages.html.twig', {'button_label': 'Upd ate'}) }}
+
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+
+                <th>Amount</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>Phone</th>
+                <th>Shipinfo</th>
+                <th>Status</th>
+                <th>Note</th>
+
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for order in orders %}
+            <tr>
+                <td>{{ order.id }}</td>
+                <td>{{ order.amount }}</td>
+                <td>{{ order.name }}</td>
+                <td>{{ order.address }}</td>
+                <td>{{ order.city }}</td>
+                <td>{{ order.phone }}</td>
+                <td>{{ order.shipinfo }}</td>
+                <td>{{ order.status }}</td>
+                <td>{{ order.note }}</td>
+
+                <td>
+                    <a href="{{ path('orders_show', {'id': order.id}) }}">show</a>
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+    </div></div></section>
+{% endblock %}

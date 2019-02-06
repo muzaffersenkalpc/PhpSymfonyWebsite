@@ -1,0 +1,24 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title %}Hakkımızda {% endblock %}
+{% block keywords %}{{ data[0].keywords }} {% endblock %}
+{% block description %}{{ data[0].description }}{% endblock %}
+{% block body %}
+<div class="container">
+
+    <div class="col-sm-15">
+        <div>
+            <h1>{{ data[0].title }}</h1>
+        </div>
+        <hr class="soften"
+        <div class="row">
+            <div class="span12">
+                <p>
+                    {{ data[0].aboutus|raw}}
+                </p>
+                <div class="row"></div>
+            </div>
+        </div>
+    </div></div>
+{% endblock %}
+

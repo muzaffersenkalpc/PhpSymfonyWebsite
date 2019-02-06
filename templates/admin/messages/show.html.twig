@@ -1,0 +1,76 @@
+
+
+{% block title %}{% endblock %}
+
+{% block content %}
+    <div id="content">
+
+        <div class="inner" style="min-height:1200px;">
+
+                <div class="col-lg-12">
+                    <h1 text align="center" >Message</h1>
+
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <td>{{ message.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Name</th>
+                            <td>{{ message.name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td>{{ message.email }}</td>
+                        </tr>
+                        <tr>
+                            <th>Subject</th>
+                            <td>{{ message.subject }}</td>
+                        </tr>
+                        <tr>
+                            <th>Message</th>
+                            <td>{{ message.message }}</td>
+                        </tr>
+                        <tr>
+                            <th>Comment</th>
+                            <td>{{ message.comment }}</td>
+                        </tr>
+                        <tr>
+                            <th>Status</th>
+                            <td>{{ message.status }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <form action="{{ path('admin_messages_update',{'id':message.id}) }}" method="post">
+                        <textarea class="form-control" name="comment" cols="20" rows="3"></textarea>
+                        <input type="submit" value="Guncelle">
+                    </form>
+
+
+
+
+                </div>
+
+
+            <hr />
+
+
+
+
+        </div>
+
+
+
+
+    </div>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .catch( error => {
+            console.error( error );
+        } );
+    </script>
+{% endblock %}
+

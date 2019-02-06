@@ -1,0 +1,57 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title %} Hakkımızda{{ data[0].title }} {% endblock %}
+{% block keywords %}{{ data[0].keywords }} {% endblock %}
+{% block description %}{{ data[0].description }}{% endblock %}
+{% block sidebar %} {% include 'home/_sidebar.html.twig' %}{% endblock %}
+{% block body %}
+<hr class="soften">
+<div>
+    <h1>{{ data[0].title}}</h1>
+</div>
+<hr class="soften"
+    <div class="row">
+        <div class="span12">
+            <p>
+
+
+                <div class="features_items"><!--features_items-->
+                    <h2 class="title text-center">Ürünler</h2>
+                    {% for rs in product %}
+                    <div class="col-sm-4">
+                        <div class="product-image-wrapper">
+                            <div class="single-products">
+                                <div class="productinfo text-center">
+                                    <a href="{{ path('product_detail', {'id': rs.id}) }}"> </a> <img src="{{ asset('images') }}/phpsiteresimleri/{{ rs.image }}" height="200"  alt=""></a>
+                                    <h2>{{ rs.sprice }} TL</h2>
+
+            <p>{{ rs.title }}</p>
+            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Incele</a>
+        </div>
+
+
+
+        <div class="product-overlay">
+            <div class="overlay-content">
+                <h2>$56</h2>
+                <p>{{ rs.title }}</p>
+                <a href="{{ path('product_detail', {'id': rs.id}) }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    </div>
+
+
+
+
+
+                {% endfor %}
+
+    </div>
+            </p>
+            <div class="row"></div>
+        </div></div>
+    </div>
+{% endblock %}

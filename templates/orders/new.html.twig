@@ -1,0 +1,22 @@
+{% extends 'frontbase.html.twig' %}
+{% block title %} Ödeme sayfası {% endblock %}
+{% block sidebar %} {{ include('home/_userssidebar.html.twig') }}{% endblock %}
+{% block body %}
+<div id="collapseOne" class="accordion-body collapse in body">
+    <div class="product-details"><!--product-details-->
+    <div class="col-sm-8">
+    <div class="view-product">
+
+
+
+
+    <div class="form-group">
+        <h5> Ödeme sayfası</h5>
+        {{ include('orders/_form.html.twig') }}
+    </div>
+</div>
+    </div>
+    </div>
+</div>
+    </section>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'frontbase.html.twig' %}
+{% block title %} Düzenleme ekranı {% endblock %}
+{% block sidebar %} {{ include('home/_userssidebar.html.twig') }}{% endblock %}
+{% block body %}
+
+
+
+
+
+        {{ include('userpanel/_form.html.twig', {'button_label': "Update"}) }}
+
+{% endblock %}

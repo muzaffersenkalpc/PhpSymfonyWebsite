@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+
+    <meta charset="UTF-8" />
+    <title>Admin Yönetim Paneli</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <![endif]-->
+    <!-- GLOBAL STYLES -->
+    <!-- GLOBAL STYLES -->
+
+    <link rel="stylesheet" href="{{ asset('admin') }}/assets/plugins/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="{{ asset('admin') }}/assets/css/main.css" />
+    <link rel="stylesheet" href="{{ asset('admin') }}/assets/css/theme.css" />
+    <link rel="stylesheet" href="{{ asset('admin') }}/assets/css/MoneAdmin.css" />
+    <link rel="stylesheet" href="{{ asset('admin') }}/assets/plugins/Font-Awesome/css/font-awesome.css" />
+    <!--END GLOBAL STYLES -->
+
+    <!-- PAGE LEVEL STYLES -->
+    <SCRIPT language="JavaScript" type="text/javascript">
+        function openWin(windowURL, windowName, windowFeatures) { window.open(windowURL, windowName, windowFeatures) ; }
+    </SCRIPT>
+    <script src="https://cdn.ckeditor.com/ckeditor5/11.2.0/classic/ckeditor.js"></script>
+
+    <link href="{{ asset('admin') }}/assets/plugins/egorkhmelev-jslider/css/jslider.css" rel="stylesheet" />
+    <link href="{{ asset('admin') }}/assets/plugins/egorkhmelev-jslider/css/jslider.blue.css" rel="stylesheet" />
+    <link href="{{ asset('admin') }}/assets/plugins/egorkhmelev-jslider/css/jslider.plastic.css" rel="stylesheet" />
+    <link href="{{ asset('admin') }}/assets/plugins/egorkhmelev-jslider/css/jslider.round.css" rel="stylesheet" />
+    <link href="{{ asset('admin') }}/assets/plugins/egorkhmelev-jslider/css/jslider.round.plastic.css" rel="stylesheet" />
+
+    <!-- END PAGE LEVEL  STYLES -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+
+    <![endif]-->
+</head>
+<!-- END HEAD -->
+
+<!-- BEGIN BODY -->
+<body class="padTop53 ">
+
+<!-- MAIN WRAPPER -->
+<div id="wrap">
+
+
+    <!-- HEADER SECTION -->
+    <div id="top">
+
+        <nav class="navbar navbar-inverse navbar-fixed-top " style="padding-top: 10px;">
+            <a data-original-title="Show/Hide Menu" data-placement="bottom" data-tooltip="tooltip" class="accordion-toggle btn btn-primary btn-sm visible-xs" data-toggle="collapse" href="#menu" id="menu-toggle">
+                <i class="icon-align-justify"></i>
+            </a>
+            <!-- LOGO SECTION -->
+            <header class="navbar-header">
+
+                <a href="/admin" class="navbar-brand">
+                    <img src="{{ asset('admin') }}/assets/img/logo.png" alt="" /></a>
+            </header>
+            <!-- END LOGO SECTION -->
+            <ul class="nav navbar-top-links navbar-right">
+
+
+                <!--TASK SECTION -->
+
+
+
+
+                <!--ALERTS SECTION -->
+                <li class="chat-panel dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <span class="label label-info">New</span>   <i class="icon-comments"></i>&nbsp; <i class="icon-chevron-down"></i>
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-alerts">
+
+                        <li>
+                            <a href="{{ path('admin_messages_index') }}">
+                                <div>
+                                    <i class="icon-comment" ></i> Yeni Mesaj Olabilir
+                                    <span class="pull-right text-muted small"> Yeni mesajınız olabilir.</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+
+                    </ul>
+
+                </li>
+                <!-- END ALERTS SECTION -->
+
+                <!--ADMIN SETTINGS SECTIONS -->
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <li class="dropdown">
+
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="icon-user "></i>&nbsp; <i class="icon-chevron-down "></i>
+                    </a>
+
+
+                    <ul class="dropdown-menu dropdown-user">
+
+                        <li><a href="/show"><i class="icon-gear"></i> Settings </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="{{ path('app_logout') }}"><i class="icon-signout"></i> Çıkış </a>
+                        </li>
+                    </ul>
+
+
+                </li>
+                {% else %}
+                olmadı
+                {% endif %}
+
+                <!--END ADMIN SETTINGS -->
+            </ul>
+
+        </nav>
+
+    </div>
+    <!-- END HEADER SECTION -->
+
+
+
+    <!-- MENU SECTION -->
+    <div id="left">
+        <div class="media user-media well-small">
+            <a class="user-link" href="admin/#">
+                <img class="media-object img-thumbnail user-img" alt="User Picture" src="{{ asset('admin') }}/assets/img/user.gif" />
+            </a>
+            <br />
+
+            <div class="media-body">
+                <h5 class="media-heading"> {{ app.user.name }}</h5>
+                <ul class="list-unstyled user-info">
+
+                    <li>
+                        <a class="btn btn-success btn-xs btn-circle" style="width: 10px;height: 12px;"></a> Online
+
+                    </li>
+
+                </ul>
+            </div>
+
+            <br />
+        </div>
+
+
+        <ul id="menu" class="collapse">
+
+
+            <li class="panel">
+                <a href="/admin" >
+                    <i class="icon-table"></i> Ana Sayfa
+
+
+                </a>
+            </li>
+
+
+
+            <li class="panel ">
+                <a href="#" data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#component-nav">
+                    <i class="icon-shopping-cart"> </i> Siparişler
+
+                    <span class="pull-right">
+                          <i class="icon-angle-left"></i>
+                        </span>
+                    &nbsp; <span class="label label-default">10</span>&nbsp;
+                </a>
+                <ul class="collapse" id="component-nav">
+
+                    <li class=""><a href="{{ path('admin_orders_index', {'slug': 'new'})  }}"><i class="icon-angle-right"></i> Yeni Sipariş </a></li>
+                    <li class= ""><a href="{{ path('admin_orders_index', {'slug': 'accepted'}) }}"><i class="icon-angle-right"></i> Onaylanan Siparişler </a></li>
+                    <li class=""><a href="{{ path('admin_orders_index', {'slug': 'canceled'}) }}"><i class="icon-angle-right"></i> İptal Edilenler </a></li>
+                    <li class=""><a href="{{ path('admin_orders_index', {'slug': 'shipping'}) }}"><i class="icon-angle-right"></i> Kargodakiler </a></li>
+                    <li class=""><a href="{{ path('admin_orders_index', {'slug': 'completed'}) }}"><i class="icon-angle-right"></i> Tamamlananlar </a></li>
+
+
+                </ul>
+            </li>
+            <li><a href="{{ path('admin_product_index') }}"><i class="icon-tags"></i> Ürünler </a></li>
+            <li><a href="{{ path('admin_category_index') }}"><i class="icon-tags"></i> Kategoriler </a></li>
+            <li><a href="{{ path('admin_users_index') }}"><i class="icon-user"></i> Üyeler </a></li>
+            <li><a href="{{ path('admin_messages_index') }}"><i class="icon-envelope-alt"></i> Mesajlar </a></li>
+            <li><a href="{{ path('admin_setting_index') }}"> <i class="btn btn-danger btn-sm btn-circle"">Ayarlar </i></a></li>
+
+    </div>
+    <!--END MENU SECTION -->
+
+    {% block content %} {% endblock %}
+
+<!-- FOOTER -->
+<div id="footer">
+    <p>&copy;  Muzaffer Şenkal &nbsp;</p>
+</div>
+<!--END FOOTER -->
+
+
+<!-- GLOBAL SCRIPTS -->
+<script src="{{ asset('admin') }}/assets/plugins/jquery-2.0.3.min.js"></script>
+<script src="{{ asset('admin') }}/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="{{ asset('admin') }}/assets/plugins/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+<!-- END GLOBAL SCRIPTS -->
+
+<!-- PAGE LEVEL SCRIPTS -->
+<script src="{{ asset('admin') }}/assets/plugins/flot/jquery.flot.js"></script>
+<script src="{{ asset('admin') }}/assets/plugins/flot/jquery.flot.resize.js"></script>
+<script src="{{ asset('admin') }}/assets/plugins/flot/jquery.flot.time.js"></script>
+<script  src="{{ asset('admin') }}/assetsplugins/flot/jquery.flot.stack.js"></script>
+<script src="{{ asset('admin') }}/assets/js/for_index.js"></script>
+
+
+<!--END PAGE LEVEL SCRIPTS -->
+</body>
+
+<!-- END BODY -->
+</html>

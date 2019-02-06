@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<script></script>
+<head>
+
+    <meta charset="utf-8">
+    <title>{% block title %}Deneme site {% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="<title>{% block description %} Deneme Desc {% endblock %}</title>">
+    <meta name="author" content="<title>{% block author %} Deneme Author {% endblock %}</title>">
+    <meta name="keywords" content="<title>{% block keywords %} Deneme Keywords {% endblock %}</title>">
+
+    <link href="{{ asset('css') }}/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('css') }}/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ asset('css') }}/prettyPhoto.css" rel="stylesheet">
+    <link href="{{ asset('css') }}/price-range.css" rel="stylesheet">
+    <link href="{{ asset('css') }}/animate.css" rel="stylesheet">
+    <link href="{{ asset('css') }}/main.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+
+    <![endif]-->
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('images') }}/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('images') }}/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('images') }}/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="{{ asset('images') }}/ico/apple-touch-icon-57-precomposed.png">
+    {% block stylesheets %}{% endblock %}
+</head><!--/head-->
+
+<body>
+
+<header id="header"><!--header-->
+    <div class="header_top"><!--header_top-->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="contactinfo">
+                        <ul class="nav nav-pills">
+                            <li><a href="#"><i class="fa fa-phone"></i> 0538 016 1790</a></li>
+                            <li><a href="#"><i class="fa fa-envelope"></i> muzaffersenkalpc@gmail.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="social-icons pull-right">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--/header_top-->
+    {{ include ('User/messages.html.twig')}}
+
+    <div class="header-middle"><!--header-middle-->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="logo pull-left">
+                        <a href="/"><img src="images/phpsiteresimleri/logo1.png" alt="" /></a>
+                    </div>
+
+                </div>
+                <div class="col-sm-8">
+
+
+                    <div class="shop-menu pull-right">
+
+                        <ul class="nav navbar-nav">
+
+                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                            <li><a href="{{ path('shopcart_index') }}"><i class="fa fa-shopping-cart"></i> Alışveriş Sepetim</a></li>
+
+                            <li class="dropdown" ><a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="fa fa-lock"></i> {{ app.user.name }}</a>
+
+                                <ul role="menu" class="dropdown-menu">
+                                    <li><a href="{{ path('orders_index') }}"><i class="fa fa-shopping-cart"></i>Siparişlerim</a></li>
+                                    <li><a href="{{ path('userpanel_show') }}"><i class="fa fa-user" ></i> Hesabım</a></li>
+                                    <li><a href="{{ path('app_logout') }}"><i class="fa fa-sign-out"></i>Çıkış Yap</a></li>
+
+                                </ul>
+
+
+
+                            </li>
+
+                            {% else %}
+
+
+                            <li><a   href="{{ path('new_user') }}"><i class="fa fa-lock"></i> Üye Ol</a></li>
+                            <li><a   href="{{ path('app_login') }}"><i class="fa fa-lock"></i>Giriş yap</a></li>
+
+
+
+                        </ul>
+                        {% endif %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div><!--/header-middle-->
+
+    <div class="header-bottom"><!--header-bottom-->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="mainmenu pull-left">
+                        <ul class="nav navbar-nav collapse navbar-collapse">
+                            <li><a href="{{ path('home') }}" class="active">Home</a></li>
+                            <li><a href="{{ path('hakkimizda') }}">Hakkımızda</a></li>
+                            <li><a href="{{ path('iletisim') }}">Contact</a></li>
+                            <li><a href="{{ path('referanslar') }}">Referanslar</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div><!--/header-bottom-->
+</header><!--/header-->
+
+    {% block slider %} {% endblock %}
+    {% block sidebar %}  {% endblock %}
+    {% block body %} {% endblock %}
+    {% block content %} {% endblock %}
+
+
+<footer id="footer"><!--Footer-->
+
+    <div class="footer-top">
+
+        <div class="container">
+
+            <div class="row">
+
+
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div class="single-widget">
+
+                            <h2>Service</h2>
+                            <ul class="nav nav-pills nav-stacked">
+
+                                <li><a href="{{ path('home') }}">Home Page</a></li>
+                                <li><a href="{{ path('hakkimizda') }}">About us</a></li>
+                                <li><a href="{{ path('iletisim') }}">Contact</a></li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+
+
+                        <div class="companyinfo">
+                            <h2><span>e</span>-Shopping</h2>
+                            <p><b>Php proje için geliştirilen e-shopping sitesi.</b></p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-5">
+                        <div class="address">
+                            <img src="images/home/map.png" alt="" />
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-widget">
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <p class="pull-left" >Designed by Muzaffer Şenkal</p>
+
+            </div>
+        </div>
+    </div>
+
+
+</footer><!--/Footer-->
+
+
+
+
+<script src="{{ asset('js') }}/jquery.js"></script>
+<script src="{{ asset('js') }}/bootstrap.min.js"></script>
+<script src="{{ asset('js') }}/jquery.scrollUp.min.js"></script>
+<script src="{{ asset('js') }}/price-range.js"></script>
+<script src="{{ asset('js') }}/jquery.prettyPhoto.js"></script>
+<script src="{{ asset('js') }}/main.js"></script>
+</body>
+</html>
+
+

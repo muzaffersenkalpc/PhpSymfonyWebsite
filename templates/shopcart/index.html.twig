@@ -1,0 +1,65 @@
+{% extends 'frontbase.html.twig' %}
+{% block title %} ShopCart {% endblock %}
+
+
+{% block sidebar %} {{ include('home/_userssidebar.html.twig') }} {% endblock %}
+{% block body %}
+    {{ include ('User/messages.html.twig')}}
+
+    <div class="col-sm-8">
+    <div class="product-image-wrapper">
+        <div class="single-products">
+            <h1>Alışveriş Sepetiniz</h1>
+
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Product Name</th>
+                    <th>Sale Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for shopcart in shopcarts %}
+                    <tr>
+                        <td>{{ shopcart.id }}</td>
+                        <td>{{ shopcart.title }}</td>
+                        <td>{{ shopcart.sprice }}</td>
+                        <td>{{ shopcart.quantity }}</td>
+                        <td>{{ shopcart.quantity * shopcart.sprice }} </td>
+
+                        <td>
+                            <button type="button" class="btn btn-danger">
+                                <i class="fa fa-eraser"></i>
+                                <a href="{{ path('shopcart_del', {'id': shopcart.id}) }}" onclick="return confirm('Emin misin?')";>Sil</a>
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                {% else %}
+                    <tr>
+                        <td colspan="5">no records found</td>
+                    </tr>
+                {% endfor %}
+                <tr>
+
+                </tr>
+                </tbody>
+            </table>
+            <button type="button" class="btn btn-fefault cart">
+                <i class="fa fa-shopping-cart"></i>
+                <a href="{{ path('orders_new') }}" >Ürünleri satın al</a>
+            </button>
+        </div><!--/category-tab-->
+    </div>
+    </div>
+    </div>
+    </div></div>
+    </div>
+{% endblock %}

@@ -1,0 +1,54 @@
+
+<div class="col-sm-9">
+    <div class="signup-form"><!--sign up form-->
+        <form class="form-horizontal" name="order" action="{{ path('orders_new') }}" method="post">
+            <fieldset>
+        <label class="col-sm-2 control-label">Toplam Tutar</label>
+                <div class="control-group" col-sm-5>
+                    <input type="text" name="orders[amount]" value="{{ total }}" placeholder="name" class="input-xlarge"/>
+                </div>
+
+
+
+          <hr>
+                KARGO ALICI BİLGİLERİ
+                <hr>
+                <label class="col-sm-2 control-label">Adı Soyadı:</label>
+                <div class="control-group" col-sm-5>
+                    <input type="text" name="orders[name]" value="{{ app.user.name }}" placeholder="name" class="input-xlarge"/>
+                </div>
+                <label class="col-sm-2 control-label">Adresi:</label>
+                <div class="control-group" col-sm-5>
+                    <input type="text" name="orders[address]" value="{{ app.user.address }}" placeholder="Adresi" class="input-xlarge"/>
+                </div>
+                <label class="col-sm-2 control-label">Şehir</label>
+                <div class="control-group" col-sm-5>
+                    <input type="text" name="orders[city]" value="{{ app.user.city }}" placeholder="city" class="input-xlarge"/>
+                </div>
+                <label class="col-sm-2 control-label">Telefon</label>
+                <div class="control-group" col-sm-5>
+                    <input type="text" name="orders[phone]" value="{{ app.user.number }}" placeholder="number" class="input-xlarge"/>
+                </div>
+<hr>
+        KREDİ KARTI BİLGİLERİ
+<hr>
+                <label class="col-sm-2 control-label">Adı Soyadı</label>
+                <div class="control-group" col-sm-5>
+                    <input type="text" name="cardholdername"  placeholder="Kart Adı soyadı" class="input-xlarge"/>
+                </div><label class="col-sm-2 control-label">Kart Numarası</label>
+                <div class="control-group" col-sm-5>
+                    <input type="text" name="cardnumber"  placeholder="Kart numarası" class="input-xlarge"/>
+                </div><label class="col-sm-2 control-label">SKT</label>
+                <div class="control-group" col-sm-5>
+                    <input type="text" name="cardvaliddate"  placeholder="AY/YIL" class="input-xlarge"/>
+                </div><label class="col-sm-2 control-label">Şifresi</label>
+                <div class="control-group" col-sm-5>
+                    <input type="text" name="cardsecuritycode"  placeholder="Şifre" class="input-xlarge"/>
+                </div>
+
+            <input type="hidden" name="token" value="{{ csrf_token('form-order') }}" />
+            <button type="submit" class="btn btn-default">Sipariş ver</button>
+        </form>
+    </div><!--/sign up form-->
+</div>
+</fieldset>

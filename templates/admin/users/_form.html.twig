@@ -1,0 +1,116 @@
+
+{% block content %}
+    <!--PAGE CONTENT -->
+    <section class="content">
+
+
+
+            <div class="inner" style="min-height:1200px;">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <div class="col-lg-12">
+                            <div class="box">
+                                <header>
+                                    <div class="icons"><i class="icon-th-large"></i></div>
+                                    <h5>Üye formu</h5>
+                                    <div class="toolbar">
+                                        <ul class="nav">
+                                            <li>
+                                                <div class="btn-group">
+                                                    <a class="accordion-toggle btn btn-xs minimize-box" data-toggle="collapse" href="#collapseOne">
+                                                        <i class="icon-chevron-up"></i>
+                                                    </a>
+
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                </header>
+                                <div id="collapseOne" class="accordion-body collapse in body">
+                                    <form class="form-horizontal"  method="post">
+
+                                        <div class="form-group">
+                                            <label class="control-label col-lg-4">Adı Soyadı</label>
+                                            <div class="col-lg-4">
+                                                <input type="text" id="users_name" name="user[name]" value="{{ user.name }}" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-lg-4">E-mail</label>
+
+                                            <div class="col-lg-4">
+                                                <input type="email" id="users_email" name="user[email]" value="{{ user.email }}"class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-lg-4">Password</label>
+
+                                            <div class="col-lg-4">
+                                                <input type="password" id="users_password" name="user[password]" value="{{ user.password }}"class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-lg-4">Türü</label>
+
+                                            <div class="col-lg-4">
+                                                <select class="form-control " name="user[roles]"   ">
+                                                {% for item in user.roles %}
+                                                    <option selected>{{ item }}</option>
+                                                {% endfor %}
+                                                <option >ROLE_ADMIN</option>
+                                                <option >ROLE_USER</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                                <label class="control-label col-lg-4">Aktif durumu</label>
+
+                                                <div class="col-lg-4">
+                                                    <select class="form-control " name="user[status]"  id="users_status" ">
+                                                    <option >{{ user.status }}</option>
+                                                    <option >True</option>
+                                                    <option >False</option>
+
+                                                    </select>
+                                                </div>
+                                        </div><br><br><br>
+
+
+
+
+
+                                        <div class="box-footer" style="text-align:center;">
+                                            <a href="{{ path('admin_users_index') }}" class="btn btn-warning btn-lg" ><i class="icon-remove icon-white"></i> Iptal</a>
+                                            <button type="submit"  class="btn btn-primary btn-lg "><i class="icon-check"></i> Kaydet</button>
+
+
+                                        </div>
+
+
+
+                                    </form>
+                                    {{ include('admin/users/_delete_form.html.twig') }}
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+    </section>
+
+    <!--END PAGE CONTENT -->
+{% endblock %}

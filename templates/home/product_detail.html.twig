@@ -1,0 +1,178 @@
+{% extends 'frontbase.html.twig' %}
+{% block title %} {{ data[0].title }} {% endblock %}
+{% block keywords %} {{ data[0].keywords }} {% endblock %}
+{% block description %} {{ data[0].description }} {% endblock %}
+{% block sidebar %} {{ include('home/_sidebar.html.twig') }} {% endblock %}
+
+
+
+{% block body %}
+
+
+
+    <div class="col-sm-9 padding-right">
+        <div class="product-details"><!--product-details-->
+            <h2 class="title text-center">Ürün Detayı</h2>
+            <div class="col-sm-5">
+
+                <div id="similar-product" class="carousel slide" data-ride="carousel">
+
+                    <!-- Wrapper for slides -->
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        <div class="item active ">
+                            <img src="{{ asset('images') }}/phpsiteresimleri/{{ data[0].image }}" alt="" >
+                        </div>
+                        {% for rs in images %}
+                            <div class="item">
+
+                                <img src="{{ asset('images') }}/phpsiteresimleri/{{ rs.image }}" alt=""  >
+
+                            </div>
+                        {% endfor %}
+
+
+                    </div>
+
+
+                </div>
+
+                <!-- Controls -->
+                <a class="left item-control" href="#similar-product" data-slide="prev">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                <a class="right item-control" href="#similar-product" data-slide="next">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+
+
+            <div class="col-sm-7">
+                <div class="product-information"><!--/product-information-->
+                    <img src="images/product-details/new.jpg" class="newarrival" alt="" />
+                    <h2>{{ data[0].title }}</h2>
+                    <small>{{ data[0].description }}</small>
+                    <img src="images/product-details/rating.png" alt="" />
+                    <form name="shopcart" class="form-horizontal qtyFrm" action="{{ path('shopcart_new') }}" method="post" ">
+                    <span>
+
+									<span>{{ data[0].sprice }} TL</span>
+									<label>Quantity:</label>
+									<input type="number" name="quantity" value="1" placeholder="Adet" max="{{ data[0].amount }}">
+                                    <input type="hidden" name="shopcart[productid]" value="{{ data[0].id }}">
+									<button type="submit" class="btn btn-fefault cart">
+										<i class="fa fa-shopping-cart"></i>
+										Add to cart
+									</button>
+
+								</span>
+                    <p><b>Stok durumu</b> {{ data[0].amount }}</p>
+
+                    <p><b>Brand:</b> {{ data[0].type }}</p>
+
+                    </form>
+                    <p><h4>{{ data[0].amount }} Adet stokta var</h4></p>
+                    <input type="hidden" name="token"  value="{{ csrf_token('add-item') }}" >
+                    <a href=""><img src="images/product-details/share.png" class="share img-responsive"  alt="" /></a>
+                </div><!--/product-information-->
+            </div>
+        </div>
+    </div><!--/product-details-->
+
+    <div class="category-tab shop-details-tab"><!--category-tab-->
+        <div class="col-sm-12">
+            <ul class="nav nav-tabs">
+                <li class=""><a href="#details" data-toggle="tab">Details</a></li>
+                <li class="active"><a href="#reviews" data-toggle="tab">Reviews </a></li>
+            </ul>
+        </div>
+        <div class="tab-content">
+            <div class="tab-pane fade" id="details">
+                <div class="product-image-wrapper">
+                    <div class="single-products">
+                        <div class="productinfo text-center">
+                            {{ data[0].detail|raw }}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="tab-pane fade active in" id="reviews">
+                <div class="col-sm-12">
+                    {{ include ('User/messages.html.twig')}}
+                    <div class="container">
+
+                        <div class="col-sm-15">
+                            <div>
+                                <h1>Yorumlar</h1>
+                            </div>
+
+                                <div class="review">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>mesaj</th>
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for yorum in dataa %}
+                                            <tr>
+                                                <td>{{ yorum.name }}</td>
+
+                                                <td>{{ yorum.yorum }}</td>
+
+                                            </tr>
+                                        {% else %}
+                                            <tr>
+                                                <td colspan="5">no records found</td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+
+                                </div>
+
+
+                    <form class="form-horizontal" name="yorum" action="" method="post">
+
+                        <div class="form-group">
+
+                            <textarea  class="form-control" placeholder="Yorumunuz" name="yorum[yorum]" rows="6" ></textarea>
+
+                        </div>
+                        <input type="hidden" name="token" value="{{ csrf_token('form-yorum') }}" />
+                        <input type="submit" href="controlproduct_detail" class="btn btn-primary" value="Yolla"></input>
+                    </form>
+        </div></div></div></div>
+            </div>
+
+        </div>
+    </div>
+
+
+        <!--product detail-->
+
+
+    </div><!--/category-tab-->
+
+    </div>
+    </div><!--/category-tab-->
+
+
+    </div>
+    </div>
+
+    </div>
+    </div>
+
+    </div>
+
+{% endblock %}
+

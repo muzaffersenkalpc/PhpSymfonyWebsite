@@ -1,0 +1,255 @@
+
+{% block content %}
+    <!--PAGE CONTENT -->
+    <section class="content">
+
+
+
+        <div class="inner" style="min-height:1200px;">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div class="col-lg-12">
+                        <div class="box">
+                            <header>
+                                <div class="icons"><i class="icon-th-large"></i></div>
+                                <h5>Kategori formu</h5>
+                                <div class="toolbar">
+                                    <ul class="nav">
+                                        <li>
+                                            <div class="btn-group">
+                                                <a class="accordion-toggle btn btn-xs minimize-box" data-toggle="collapse" href="#collapseOne">
+                                                    <i class="icon-chevron-up"></i>
+                                                </a>
+
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </header>
+                            <div id="collapseOne" class="accordion-body collapse in body">
+
+
+                                <form class="form-horizontal"  method="post">
+                                    <div class="panel-body">
+                                        <ul class="nav nav-tabs">
+                                            <li class="active"><a href="#genel" data-toggle="tab">Genel Bilgiler</a>
+                                            </li>
+                                            <li class=""><a href="#emailserver" data-toggle="tab">Email Server</a>
+                                            </li>
+                                            <li class=""><a href="#hakkimizda" data-toggle="tab">Hakkımızda</a>
+                                            </li>
+                                            <li class=""><a href="#iletisim" data-toggle="tab">İletişim</a>
+                                            </li>
+                                            <li class=""><a href="#referanslar" data-toggle="tab">Referanslar</a>
+                                            </li>
+                                        </ul>
+
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade active in" id="genel">
+
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-lg-4"> Adı</label>
+
+                                                    <div class="col-lg-4">
+                                                        <input type="text"  name="setting[title]" value="{{ setting.title }}"class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-lg-4">Anahtar Kelimeler</label>
+
+                                                    <div class="col-lg-4">
+                                                        <input type="text"  name="setting[keywords]" value="{{ setting.keywords }}"class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-lg-4">Açıklama</label>
+
+                                                    <div class="col-lg-4">
+                                                        <input type="text"  name="setting[description]" value="{{ setting.description }}"class="form-control">
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-lg-4">Firma</label>
+
+                                                    <div class="col-lg-4">
+                                                        <input type="text"  name="setting[company]" value="{{ setting.company }}"class="form-control">
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-lg-4">Adress</label>
+
+                                                    <div class="col-lg-4">
+                                                        <input type="text"  name="setting[address]" value="{{ setting.address }}"class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-lg-4">Telefon</label>
+
+                                                    <div class="col-lg-4">
+                                                        <input type="text"  name="setting[phone]" value="{{ setting.phone }}"class="form-control">
+                                                    </div>
+                                                </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label col-lg-4">Aktif durumu</label>
+
+                                                <div class="col-lg-4">
+                                                    <select class="form-control " name="setting[status]"  ">
+                                                    <option >{{ setting.status }}</option>
+                                                    <option >True</option>
+                                                    <option >False</option>
+
+                                                    </select>
+                                                </div>
+
+                                            </div>
+                                            </div>
+
+
+                                            <div class="tab-pane fade" id="emailserver">
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-lg-4">Email Server</label>
+
+                                                    <div class="col-lg-4">
+                                                        <input type="text"  name="setting[smtpserver]" value="{{ setting.smtpserver }}"class="form-control">
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-lg-4">Email</label>
+
+                                                    <div class="col-lg-4">
+
+                                                        <input type="text"  name="setting[email]" value="{{ setting.email }}"class="form-control">
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-lg-4">Email Şifre</label>
+
+                                                    <div class="col-lg-4">
+
+                                                        <input type="text"  name="setting[smtppassword]" value="{{ setting.smtppassword }}"class="form-control">
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-lg-4">SMTP PORT</label>
+
+                                                    <div class="col-lg-4">
+
+                                                        <input type="text"  name="setting[smtpport]" value="{{ setting.smtpport }}"class="form-control">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="hakkimizda">
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-lg-4">Hakkımızda</label>
+
+                                                    <div class="col-lg-4">
+                                                        <textarea id="editor" name="setting[aboutus]" rows="10" cols="100">{{ setting.aboutus }}</textarea>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="iletisim">
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-lg-4">İletişim</label>
+
+                                                    <div class="col-lg-4">
+                                                        <textarea id="editor2" name="setting[contact]" rows="10" cols="100">{{ setting.contact }}</textarea>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="referanslar">
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-lg-4">Referans</label>
+
+                                                    <div class="col-lg-4">
+                                                        <textarea id="editor3" name="setting[referanslar]" rows="10" cols="100">{{ setting.referanslar }}</textarea>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+
+                                    </div>
+
+
+
+                                    <div class="box-footer" style="text-align:center;">
+
+                                        <button type="submit"  class="btn btn-primary btn-lg "><i class="icon-check"></i> Kaydet</button>
+
+
+                                    </div>
+
+
+
+                                </form>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+    <script>
+
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .catch( error => {
+            console.error( error );
+        } );
+    </script>
+    <script>
+
+        ClassicEditor
+            .create( document.querySelector( '#editor2' ) )
+            .catch( error => {
+            console.error( error );
+        } );
+    </script>
+    <script>
+
+        ClassicEditor
+            .create( document.querySelector( '#editor3' ) )
+            .catch( error => {
+            console.error( error );
+        } );
+    </script>
+    <!--END PAGE CONTENT -->
+{% endblock %}

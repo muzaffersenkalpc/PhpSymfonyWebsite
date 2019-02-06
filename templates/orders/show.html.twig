@@ -1,0 +1,56 @@
+
+{% extends 'frontbase.html.twig' %}
+{% block title %}Orders index{% endblock %}
+{% block sidebar %} {{ include('home/_userssidebar.html.twig') }}{% endblock %}
+
+{% block body %}
+
+    <div class="col-sm-9">
+        <div class="signup-formm"><!--sign up form-->
+
+
+            <fieldset>
+
+
+
+
+                <table class="table">
+                    <thead>
+                    <tr>
+
+                        <th>Product Name</th>
+                        <th>Sale Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% set total=0 %}
+                    {% for rs in orderdetail %}
+                        <tr>
+
+                            <td>{{ rs.name }}</td>
+                            <td>{{ rs.price }}</td>
+                            <td>{{ rs.quantity }}</td>
+                            <td>{{ rs.amount }}</td>
+                            <td>{{ rs.status }}</td>
+                        </tr>
+
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="13">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    <tr>
+                        <td colspan="5" align="right"><b>TOplam alışveriş tutarı: {{ order.amount }} TL</b><br>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+
+        </div></div></section>
+{% endblock %}
+

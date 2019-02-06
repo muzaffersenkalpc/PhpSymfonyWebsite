@@ -1,0 +1,93 @@
+<!--sidebar begin-->
+<style>
+    ul#menu-v, #menu-v ul
+    {
+        width:200px; /* Main Menu width */
+        border:1px solid rgba(190,190,190,0.3);
+        list-style:none; margin:0; padding:0;
+        z-index:9;
+    }
+
+    #menu-v li
+    {
+        margin:0;padding:0;
+        position:relative;
+        background-color:#DDDDDD; /*fallback color*/
+        background-color:rgba(256,256,256,0.5);
+        transition:background 0.5s;
+    }
+    #menu-v li:hover
+    {
+        background-color:rgba(155,155,155,0.9);
+    }
+
+    #menu-v a
+    {
+        font:"Courier New";
+        border-top:1px solid rgba(190,190,190,0.3);
+        display:block;
+        color:#29A6AD;
+        text-decoration:none;
+        line-height:80px;
+        padding-left:10px;
+        position:relative;
+    }
+
+    #menu-v li:first-child a
+    {
+        border-top:0;
+    }
+
+    #menu-v a.arrow::after{
+        content:'';
+        position:absolute;
+        display:inline;
+        top:50%;
+        margin-top:-4px;
+        right:8px;
+        border-width:4px;
+        border-style:solid;
+        border-color:transparent transparent transparent white;
+        transition:border-color 0.5s;
+    }
+
+
+
+    /*Sub level menu items
+    ---------------------------------------*/
+    #menu-v li ul
+    {
+        min-width:180px; /* Sub level menu min width */
+        position:absolute;
+        display:none;
+        left:100%;
+        top:50%; transform:translateY(-50%);
+    }
+
+    #menu-v li:hover > ul
+    {
+        display:block;
+    }
+</style>
+<section>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="left-sidebar">
+                    <h2>Category</h2>
+                    {% for cat in cats %}
+                        {{ cat|raw}}
+                    {% endfor %}
+                </div><!--/category-products-->
+
+                <!--/brands_products-->
+
+
+
+
+                <!--/shipping-->
+
+
+            </div>
+            <!-- sidebar-->

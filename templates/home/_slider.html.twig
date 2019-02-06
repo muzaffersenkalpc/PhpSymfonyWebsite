@@ -1,0 +1,66 @@
+<section id="slider"><!--slider-->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+
+                <div id="slider-carousel" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#slider-carousel" data-slide-to="1" ></li>
+                        <li data-target="#slider-carousel" data-slide-to="2" ></li>
+                        <li data-target="#slider-carousel" data-slide-to="2" ></li>
+                    </ol>
+
+
+
+
+
+                    <div class="carousel-inner">
+
+                        <div class="item active ">
+                            <div class="col-sm-6">
+                                <h1><span>KAMPANYALI ÜRÜNLER</span></h1>
+                                <h2>KAÇIRILMAYACAK FIRSATLAR</h2>
+                                <p>UYGUN FİYATA NOTEBOOKLAR </p>
+
+
+                            </div>
+                            <div class="col-sm-6">
+                                <a href="/"> <img src="{{ asset('images') }}/phpsiteresimleri/logo.jpg" class="girl img-responsive" alt="" /></a>
+
+                            </div>
+                        </div>
+
+
+                        {% for rs in sliders %}
+                        <div class="item">
+                            <div class="col-sm-6">
+
+                                <h1><span>Fiyat : </span>{{ rs.sprice }}₺</h1>
+                                <h2>{{ rs.description }}</h2>
+                                <p>{{ rs.title }} </p>
+                                <a href="{{ path('product_detail', {'id': rs.id}) }}"> <button type="button" class="btn btn-default get">Incele</button></a>
+                            </div>
+                            <div class="col-sm-6">
+                                <a href="{{ path('product_detail', {'id': rs.id}) }}">
+                                    <img src="{{ asset('images') }}/phpsiteresimleri/{{ rs.image }}" class="girl img-responsive" alt="" /></a>
+                                </a>
+
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+
+                    <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section><!--/slider-->

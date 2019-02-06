@@ -1,0 +1,85 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Category{% endblock %}
+
+{% block content %}
+    <div id="content">
+
+        <div class="inner" style="min-height:1200px;">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 text align="center" >Product</h1>
+
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <td>{{ product.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Üst kategori</th>
+                            <td>{{ catname[0].title }}</td>
+                        </tr>
+                        <tr>
+                            <th>Title</th>
+                            <td>{{ product.title }}</td>
+                        </tr>
+                        <tr>
+                            <th>Keywords</th>
+                            <td>{{ product.keywords }}</td>
+                        </tr>
+                        <tr>
+                            <th>Description</th>
+                            <td>{{ product.description }}</td>
+                        </tr>
+                        <tr>
+                            <th>Status</th>
+                            <td>{{ product.status }}</td>
+                        </tr>
+                        <tr>
+                            <th>Modeli</th>
+                            <td>{{ product.Model }}</td>
+                        </tr>
+                        <tr>
+                            <th>Satış fiyatı</th>
+                            <td>{{ product.sprice }}</td>
+                        </tr>
+                        <tr>
+                            <th>Alış fiyatı</th>
+                            <td>{{ product.pprice }}</td>
+                        </tr>
+                        <tr>
+                            <th>Detay</th>
+                            <td><textarea id="editor"name="product[detail]">{{ product.detail }}</textarea></td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+
+                    <a  class="btn btn-warning"  href="{{ path('admin_product_index') }}"><i class="icon-arrow-left"></i> Listeye geri dön</a>
+
+                    <a class="btn btn-primary",  href="{{ path('admin_product_edit', {'id': product.id}) }}"><i class="icon-pencil icon-white"></i> edit</a>
+
+
+                </div>
+            </div>
+
+            <hr />
+
+
+
+
+        </div>
+
+
+
+
+    </div>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .catch( error => {
+            console.error( error );
+        } );
+    </script>
+{% endblock %}

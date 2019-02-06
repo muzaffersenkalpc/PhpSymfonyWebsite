@@ -1,0 +1,68 @@
+{% extends 'adminbase.html.twig' %}
+
+
+{% block title %}Product index{% endblock %}
+
+{% block content %}
+
+
+    <div class="inner" style="min-height:1200px;">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <h1>Siparişler</h1>
+
+            <fieldset>
+
+
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Userid</th>
+                <th>Amount</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>Phone</th>
+                <th>Shipinfo</th>
+                <th>Status</th>
+                <th>Note</th>
+
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for order in orders %}
+            <tr>
+                <td>{{ order.id }}</td>
+                <td>{{ order.userid }}</td>
+                <td>{{ order.amount }}</td>
+                <td>{{ order.name }}</td>
+                <td>{{ order.address }}</td>
+                <td>{{ order.city }}</td>
+                <td>{{ order.phone }}</td>
+                <td>{{ order.shipinfo }}</td>
+                <td>{{ order.status }}</td>
+                <td>{{ order.note }}</td>
+
+                <td>
+                    <a  href="javascript:openWin('{{ path('admin_orders_show', {'id': order.id}) }}','','toolbar=no,location=no,directories=0,status=no,top=100,left=200,menubar=no,scrollBars=no,resizable=no,width=1000,height=800');">Show</a>
+
+
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    </div></section>
+{% endblock %}

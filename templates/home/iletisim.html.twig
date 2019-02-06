@@ -1,0 +1,44 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title %} İletişim{% endblock %}
+{% block keywords %}{{ data[0].keywords }} {% endblock %}
+{% block description %}{{ data[0].description }}{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-15">
+<div>
+    <h1>İletişim</h1>
+
+</div>
+
+
+            <p>
+                {{ data[0].contact|raw}}<br>
+                <label> Bizimle iletişime geçin</label><br>
+                {{ include('user/messages.html.twig') }}
+            <form class="form-horizontal" name="messages" action="" method="post">
+                <div class="form-group" name="messages" action="" method="post">
+
+                    <input type="text" class="form-control" name='messages[name]' placeholder="Adınız">
+        </div>
+            <div class="form-group">
+
+                <input type="email" name='messages[email]' placeholder="Email" class="form-control">
+            </div>
+            <div class="form-group" >
+
+                <input type="text" class="form-control" name='messages[subject]' placeholder="Konu"  >
+            </div>
+            <div class="form-group">
+
+                <textarea  class="form-control" placeholder="Mesajınız" name="messages[message]" rows="6" ></textarea>
+            </div>
+            <input type="hidden" name="token" value="{{ csrf_token('form-message') }}" />
+            <input type="submit" class="btn btn-primary" value="Yolla"></input>
+            </form>
+            </p>
+            <div class="row"></div>
+        </div>
+    </div></div>
+{% endblock %}
